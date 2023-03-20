@@ -8,13 +8,35 @@
 import UIKit
 import CoreData
 
+/*extension ListViewController: UITableViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "toDetailsVC") as! DetailsViewController
+        let item = indexPath.row
+        vc.selectedId = idSeries[item]
+        vc.selectedName = nameSeries[item]
+        vc.onDelete = { [weak self]  in
+            self?.nameSeries.remove(at: item)
+            self?.idSeries.remove(at: item)
+            //collectionView.deleteItems(at: [indexPath])
+            print("deleted")
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}*/
+
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
 
     @IBOutlet weak var tableView: UITableView!
+    
     var nameSeries = [String]()
     var idSeries = [UUID]()
     var selectedLocationName = ""
     var selectedLocationId : UUID?
+    
+    var deleteItem: (() -> Void)?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +49,26 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonClicked))
         
         fetchData()
-        
+       
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(fetchData), name: NSNotification.Name("NewLocationAdded"), object: nil)
     }
-    
-    
+ 
+    /*func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "toDetailsVC") as! DetailsViewController
+        vc.selectedId = idSeries[indexPath.row]
+        vc.selectedName = nameSeries[indexPath.row]
+        vc.onDelete = { [weak self]  in
+            self?.nameSeries.remove(at: indexPath.row)
+            self?.idSeries.remove(at: indexPath.row)
+            self?.tableView.reloadData()
+            print("deleted")
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }*/
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -99,7 +132,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if let id = result.value(forKey: "id") as? UUID {
                         idSeries.append(id)
                     }
-                    
+              
                 }
                 
             }
@@ -133,16 +166,55 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             destinationVC.selectedName = selectedLocationName
             destinationVC.selectedId = selectedLocationId
         }
+        if segue.identifier == "toDetailsVC" {
+            let destinationVC = segue.destination as! DetailsViewController
+            destinationVC.selectedName = selectedLocationName
+            destinationVC.selectedId = selectedLocationId
+            
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedLocationName = nameSeries[indexPath.row]
         selectedLocationId = idSeries[indexPath.row]
-        performSegue(withIdentifier: "toMapsVC", sender: nil)
+        performSegue(withIdentifier: "toDetailsVC", sender: nil)
+        
+        /*let detailsViewController = DetailsViewController()
+        detailsViewController.delegate = self
+        
+        detailsViewController.selectedId = idSeries[indexPath.row]
+        detailsViewController.selectedName = nameSeries[indexPath.row]
+        
+        func deleteItem() {
+            self.nameSeries.remove(at: indexPath.row)
+            self.idSeries.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            print("deleted")
+        }
+        navigationController?.pushViewController(detailsViewController, animated: true)*/
+        
     }
+    
+    /*func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let detailsViewController = DetailsViewController()
+        detailsViewController.delegate = self
+        
+        detailsViewController.selectedId = idSeries[indexPath.row]
+        detailsViewController.selectedName = nameSeries[indexPath.row]
+        
+        func deleteItem() {
+            self.nameSeries.remove(at: indexPath.row)
+            self.idSeries.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            print("deleted")
+        }
+        navigationController?.pushViewController(detailsViewController, animated: true)
+    }*/
     
     
     
     
 
 }
+

@@ -90,6 +90,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, CLLocationManager
                                             let region = MKCoordinateRegion(center: coordinate, span: span)
                                             mapView.setRegion(region, animated: true)
                                             
+                                            
                                         }
                                     }
                                 }

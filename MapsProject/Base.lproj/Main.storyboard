@@ -35,11 +35,79 @@
                     <connections>
                         <outlet property="tableView" destination="fU6-r6-O1S" id="xvV-9j-PvI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toMapsVC" id="HFo-Ng-iw7"/>
+                        <segue destination="PeX-Qo-mP3" kind="show" identifier="toDetailsVC" id="HM5-lb-gRU"/>
+                        <segue destination="2W8-G2-q4b" kind="show" identifier="" id="hlI-dL-kwh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYH-K1-cD1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="110.76923076923076" y="-28.436018957345969"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="zrj-vR-qqm">
+            <objects>
+                <viewController id="PeX-Qo-mP3" customClass="DetailsViewController" customModule="MapsProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WpI-Ms-29b">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvW-Q5-bpq">
+                                <rect key="frame" x="16" y="646" width="358" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mML-su-9i7">
+                                <rect key="frame" x="0.0" y="116" width="390" height="522"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0M-Az-nSw">
+                                <rect key="frame" x="16" y="691" width="358" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eea-gK-6cR">
+                                <rect key="frame" x="331" y="736" width="43" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="deleteButtonClicked:" destination="PeX-Qo-mP3" eventType="touchUpInside" id="aMe-R2-CIB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbv-5J-qk5">
+                                <rect key="frame" x="16" y="736" width="43" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="highlighter" catalog="system" title=""/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toEditVC" id="fZK-1A-OP4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzO-cs-G0L">
+                                <rect key="frame" x="174" y="736" width="43" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bjc-a7-O3u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qUF-aY-RP2"/>
+                    <connections>
+                        <outlet property="commentLabel" destination="J0M-Az-nSw" id="xu9-rX-LBn"/>
+                        <outlet property="locationNameLabel" destination="jvW-Q5-bpq" id="mcU-j4-HaE"/>
+                        <outlet property="mapView" destination="mML-su-9i7" id="x9X-qw-V7N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LFv-5w-cve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110.76923076923076" y="741.46919431279616"/>
         </scene>
         <!--Maps View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -118,8 +186,64 @@
             </objects>
             <point key="canvasLocation" x="-818.46153846153845" y="-28.436018957345969"/>
         </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="wp0-dx-hVR">
+            <objects>
+                <viewController id="2W8-G2-q4b" customClass="EditViewController" customModule="MapsProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uxo-dZ-9hS">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyH-4y-I2J">
+                                <rect key="frame" x="0.0" y="213" width="390" height="522"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qd2-ZA-6Fk">
+                                <rect key="frame" x="41" y="111" width="315" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-3m-DzI">
+                                <rect key="frame" x="41" y="163" width="315" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tnz-HL-s57">
+                                <rect key="frame" x="165" y="750" width="61" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k8I-pW-Aqq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="k8I-pW-Aqq" firstAttribute="trailing" secondItem="qd2-ZA-6Fk" secondAttribute="trailing" constant="34" id="3wa-9f-7Vt"/>
+                            <constraint firstItem="qd2-ZA-6Fk" firstAttribute="trailing" secondItem="HNj-3m-DzI" secondAttribute="trailing" id="96R-6E-q1u"/>
+                            <constraint firstItem="iyH-4y-I2J" firstAttribute="top" secondItem="HNj-3m-DzI" secondAttribute="bottom" constant="16" id="Ban-La-jre"/>
+                            <constraint firstItem="iyH-4y-I2J" firstAttribute="centerX" secondItem="uxo-dZ-9hS" secondAttribute="centerX" id="Ce5-iT-7Jx"/>
+                            <constraint firstItem="qd2-ZA-6Fk" firstAttribute="top" secondItem="k8I-pW-Aqq" secondAttribute="top" constant="20" id="EWg-W4-ZaG"/>
+                            <constraint firstItem="qd2-ZA-6Fk" firstAttribute="leading" secondItem="k8I-pW-Aqq" secondAttribute="leading" constant="41" id="eeB-9n-LCb"/>
+                            <constraint firstItem="HNj-3m-DzI" firstAttribute="top" secondItem="qd2-ZA-6Fk" secondAttribute="bottom" constant="18" id="jUg-aX-Khv"/>
+                            <constraint firstItem="qd2-ZA-6Fk" firstAttribute="leading" secondItem="HNj-3m-DzI" secondAttribute="leading" id="ota-Pr-Jmb"/>
+                            <constraint firstItem="iyH-4y-I2J" firstAttribute="leading" secondItem="k8I-pW-Aqq" secondAttribute="leading" id="pAu-4u-3g3"/>
+                            <constraint firstItem="iyH-4y-I2J" firstAttribute="bottom" secondItem="k8I-pW-Aqq" secondAttribute="bottom" constant="-75" id="ubY-Lr-Lo2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lkS-fn-usk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vcm-60-S6c" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="741"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HFo-Ng-iw7"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="highlighter" catalog="system" width="128" height="120"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

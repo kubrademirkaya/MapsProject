@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0268DA429BB723C00440E1E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0268DA329BB723C00440E1E /* DetailsViewController.swift */; };
+		E0268DA629BB764D00440E1E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0268DA529BB764D00440E1E /* EditViewController.swift */; };
 		E026FCA12939E5C50013D6FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026FCA02939E5C50013D6FB /* AppDelegate.swift */; };
 		E026FCA32939E5C50013D6FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026FCA22939E5C50013D6FB /* SceneDelegate.swift */; };
 		E026FCA52939E5C50013D6FB /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026FCA42939E5C50013D6FB /* MapsViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0268DA329BB723C00440E1E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E0268DA529BB764D00440E1E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		E026FC9D2939E5C50013D6FB /* MapsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E026FCA02939E5C50013D6FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E026FCA22939E5C50013D6FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				E026FCA22939E5C50013D6FB /* SceneDelegate.swift */,
 				E026FCA42939E5C50013D6FB /* MapsViewController.swift */,
 				E026FCB7293A729A0013D6FB /* ListViewController.swift */,
+				E0268DA329BB723C00440E1E /* DetailsViewController.swift */,
+				E0268DA529BB764D00440E1E /* EditViewController.swift */,
 				E026FCA62939E5C50013D6FB /* Main.storyboard */,
 				E026FCAC2939E5C60013D6FB /* Assets.xcassets */,
 				E026FCAE2939E5C60013D6FB /* LaunchScreen.storyboard */,
@@ -149,6 +155,8 @@
 				E026FCA12939E5C50013D6FB /* AppDelegate.swift in Sources */,
 				E026FCB8293A729A0013D6FB /* ListViewController.swift in Sources */,
 				E026FCA32939E5C50013D6FB /* SceneDelegate.swift in Sources */,
+				E0268DA429BB723C00440E1E /* DetailsViewController.swift in Sources */,
+				E0268DA629BB764D00440E1E /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
